@@ -1,0 +1,1 @@
+{"mappings":";ACGA;EACI,kBAJe;EAKf,OAJI","sources":["src/components/movie-view/movie-view.scss","src/index.scss"],"sourcesContent":[null,"$background-color: #dadada;\r\n$color: steelblue;\r\n\r\nbody {\r\n    background-color: $background-color;\r\n    color: $color;\r\n}"],"names":[],"version":3,"file":"index.1ef56257.css.map","sourceRoot":"/__parcel_source_root/"}
