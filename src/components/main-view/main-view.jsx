@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Navigate } from 'react-router-dom';
 
 /* import actions */
 import { setMovies, setUser, setFavoriteMovies } from '../../actions/actions';
@@ -127,7 +127,7 @@ class MainView extends React.Component {
                         }} />
 
                         <Route path="/register" render={() => {
-                            if (user) return <Redirect to="/" />
+                            if (user) return <Navigate to="/" />
                             return (
                                 <Col xs={12} md={8}>
                                     <RegistrationView />
@@ -142,7 +142,7 @@ class MainView extends React.Component {
                             )
                         }} />
                         <Route path={`/users/:username`} render={({ history }) => {
-                            if (!user) return <Redirect to="/" />
+                            if (!user) return <Navigate to="/" />
                             return (
                                 <Col xs={12} md={10}>
                                     <ProfileView user={user} favoriteMovies={favoriteMovies} onBackClick={() => history.goBack()} />
@@ -150,7 +150,7 @@ class MainView extends React.Component {
                             )
                         }} />
                         <Route path={"/directors/:name"} render={({ match, history }) => {
-                            if (!user) return <Redirect to="/" />
+                            if (!user) return <Navigate to="/" />
                             // If movie list is empty (while movies load from API), display empty page
                             if (movies.length === 0) return <div className="main-view" />;
                             return (
@@ -160,7 +160,7 @@ class MainView extends React.Component {
                             )
                         }} />
                         <Route path={"/genres/:name"} render={({ match, history }) => {
-                            if (!user) return <Redirect to="/" />
+                            if (!user) return <Navigate to="/" />
                             // If movie list is empty (while movies load from API), display empty page
                             if (movies.length === 0) return <div className="main-view" />;
                             return (
